@@ -166,7 +166,7 @@ export function TopMenu() {
                                 variant="ghost"
                                 size="icon"
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                className="text-gray-700 dark:text-gray-300"
+                                className="text-gray-700 dark:text-gray-300 mr-1"
                             >
                                 {isMobileMenuOpen ? (
                                     <X className="h-6 w-6" />
