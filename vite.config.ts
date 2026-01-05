@@ -3,17 +3,19 @@ import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
+// Reemplaza REPO_NAME por tu repositorio (por ejemplo: '/my-make-file/')
+// Para páginas de usuario/organización puedes usar './' o '/' según necesidad
+const repoBase = './'
+
 export default defineConfig({
-  plugins: [
-    // The React and Tailwind plugins are both required for Make, even if
-    // Tailwind is not being actively used – do not remove them
-    react(),
-    tailwindcss(),
-  ],
-  resolve: {
-    alias: {
-      // Alias @ to the src directory
-      '@': path.resolve(__dirname, './src'),
+    base: repoBase,
+    plugins: [
+        react(),
+        tailwindcss(),
+    ],
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './src'),
+        },
     },
-  },
 })

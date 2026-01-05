@@ -47,37 +47,19 @@ const personalProjects = [
     title: "Modern Portfolio Website",
     description:
       "A responsive portfolio website with smooth animations and dark mode support.",
-    image: "https://images.unsplash.com/photo-1762330463863-a6a399beb5ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWJzaXRlJTIwcHJvamVjdHxlbnwxfHx8fDE3Njc1MjA2MDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    tech: ["Next.js", "Tailwind CSS", "Motion"],
+    image: "/images/Portfolio1.png",
+    tech: ["React", "Typescript", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com",
-    demo: "https://example.com",
+    demo: "#home",
   },
   {
-    title: "Task Management App",
+    title: "E-commerce App",
     description:
-      "A productivity app for managing tasks and projects with drag-and-drop functionality.",
-    image: "https://images.unsplash.com/photo-1651129522359-ce483a8263a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YXNrJTIwbWFuYWdlbWVudCUyMGFwcHxlbnwxfHx8fDE3Njc0OTUyODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    tech: ["React", "Redux", "DND Kit", "Firebase"],
-    github: "https://github.com",
-    demo: "https://example.com",
-  },
-  {
-    title: "Weather Forecast App",
-    description:
-      "Beautiful weather application with 7-day forecasts and location-based updates.",
-    image: "https://images.unsplash.com/photo-1705077031869-51b60754302a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWF0aGVyJTIwZm9yZWNhc3QlMjBhcHB8ZW58MXx8fHwxNzY3NTIwOTgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tech: ["React", "OpenWeather API", "CSS3"],
-    github: "https://github.com",
-    demo: "https://example.com",
-  },
-  {
-    title: "Mobile App Design",
-    description:
-      "Cross-platform mobile application with native-like performance and beautiful UI.",
-    image: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzY3NDgyMjY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tech: ["React Native", "Expo", "Firebase"],
-    github: "https://github.com",
-    demo: "https://example.com",
+      "A modern e-commerce application built with Nuxt 4, Vue 3, Vuetify, and Drizzle ORM following Domain-Driven Design (DDD) architecture.",
+    image: "/images/Ecommerce App1.png",
+    tech: ["Vue", "Nuxt", "Vercel", "Turso DB", "Vuetify", "DDD"],
+    github: "https://github.com/jpujol880807/ecommerce-app",
+    demo: "https://ecommerce-app-tau-silk.vercel.app",
   },
 ];
 
@@ -107,7 +89,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           <ImageWithFallback
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+            className="w-full h-full object-contain hover:scale-110 transition-transform duration-500"
           />
         </div>
         <CardHeader>
@@ -126,27 +108,28 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               </motion.span>
             ))}
           </div>
-          <div className="flex gap-4">
-            <Button asChild variant="outline" className="flex-1">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="mr-2 h-4 w-4" />
-                Code
-              </a>
-            </Button>
-            <Button asChild className="flex-1">
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Live Demo
-              </a>
-            </Button>
-          </div>
+            <div className="flex gap-4">
+                {project.github ? (
+                    <Button asChild variant="outline" className="flex-1">
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                            <Github className="mr-2 h-4 w-4" />
+                            Code
+                        </a>
+                    </Button>
+                ) : (
+                    <Button variant="outline" className="flex-1" disabled>
+                      <span className="flex items-center opacity-50 cursor-not-allowed">
+                        <Github className="mr-2 h-4 w-4" />
+                        Code
+                      </span>
+                    </Button>
+                )}
+                <Button asChild className="flex-1">
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                        Live Demo
+                    </a>
+                </Button>
+            </div>
         </CardContent>
       </Card>
     </motion.div>

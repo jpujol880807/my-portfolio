@@ -77,7 +77,7 @@ export function TopMenu() {
                                 }}
                                 className="text-2xl font-bold text-blue-600 dark:text-blue-400 hover:scale-105 transition-transform inline-block"
                             >
-                                AR<span className="text-gray-900 dark:text-white">.</span>
+                                JP<span className="text-gray-900 dark:text-white">.</span>
                             </a>
                         </motion.div>
 
