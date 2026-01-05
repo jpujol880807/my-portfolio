@@ -150,18 +150,36 @@ export function ProjectCard({ project, index, reverse = false }: ProjectCardProp
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.2 + 0.7 }}
                     >
-                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                            <Button asChild variant="outline" className="rounded-full">
-                                <a
-                                    href={project.github}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                        {project.github ? (
+                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                <Button asChild variant="outline" className="rounded-full">
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={`View ${project.title} source on GitHub`}
+                                    >
+                                        <Github className="mr-2 h-4 w-4" />
+                                        View Code
+                                    </a>
+                                </Button>
+                            </motion.div>
+                        ) : (
+                            <motion.div>
+                                <Button
+                                    variant="outline"
+                                    className="rounded-full opacity-60 cursor-not-allowed"
+                                    disabled
+                                    title="Repository not available"
                                 >
-                                    <Github className="mr-2 h-4 w-4" />
-                                    View Code
-                                </a>
-                            </Button>
-                        </motion.div>
+                                    <span className="flex items-center">
+                                        <Github className="mr-2 h-4 w-4 opacity-50" />
+                                        View Code
+                                    </span>
+                                </Button>
+                            </motion.div>
+                        )}
+
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                             <Button asChild className="rounded-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
                                 <a
