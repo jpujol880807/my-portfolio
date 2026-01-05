@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect, useRef} from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
@@ -15,20 +15,23 @@ export function TopMenu() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("home");
+    const scrollTimeoutRef = useRef<number | null>(null);
 
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
 
             const sections = ["home", "about", "skills", "projects", "contact"];
-            const current = sections.find((section) => {
+            let current: string | undefined;
+            for (const section of sections) {
                 const element = document.getElementById(section);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
-                    return rect.top <= 100 && rect.bottom >= 100;
+                if (!element) continue;
+                const rect = element.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    current = section;
+                    break;
                 }
-                return false;
-            });
+            }
 
             if (current) {
                 setActiveSection(current);
@@ -36,16 +39,37 @@ export function TopMenu() {
         };
 
         window.addEventListener("scroll", handleScroll);
+        // ejecutar una vez para detectar la sección inicial
+        handleScroll();
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const scrollToSection = (href: string) => {
         const id = href.replace("#", "");
         const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-            setIsMobileMenuOpen(false);
+        if (!element) return;
+
+        // calcular Y absoluto objetivo antes de cambiar layout
+        const rect = element.getBoundingClientRect();
+        const currentScroll = window.scrollY || window.pageYOffset;
+        const nav = document.querySelector("nav");
+        const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+        const offset = 8;
+        const targetY = Math.max(0, currentScroll + rect.top - navHeight - offset);
+
+        // cerrar menú móvil y esperar la animación de salida antes de desplazar
+        setIsMobileMenuOpen(false);
+
+        // limpiar timeout anterior si existe
+        if (scrollTimeoutRef.current) {
+            window.clearTimeout(scrollTimeoutRef.current);
         }
+
+        // 320ms para cubrir la exit animation (0.3s). Ajustar si cambia la animación.
+        scrollTimeoutRef.current = window.setTimeout(() => {
+            window.scrollTo({ top: targetY, behavior: "smooth" });
+            scrollTimeoutRef.current = null;
+        }, 320);
     };
 
     return (
@@ -163,7 +187,7 @@ export function TopMenu() {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed top-16 left-0 right-0 z-40 md:hidden bg-white dark:bg-gray-900 shadow-lg overflow-hidden"
+                        className="fixed top-16 left-0 right-0 z-60 md:hidden bg-white dark:bg-gray-900 shadow-lg overflow-hidden"
                     >
                         <div className="px-4 py-6 space-y-3">
                             {menuItems.map((item, index) => (
