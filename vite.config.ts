@@ -3,8 +3,8 @@ import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
-// Reemplaza REPO_NAME por tu repositorio (por ejemplo: '/my-make-file/')
-// Para páginas de usuario/organización puedes usar './' o '/' según necesidad
+// Replace REPO_NAME with your repository (e.g., '/my-make-file/')
+// For user/organization pages you can use './' or '/' as needed
 const repoBase = './'
 
 export default defineConfig({
