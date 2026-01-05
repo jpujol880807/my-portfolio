@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 
 // Replace REPO_NAME with your repository (e.g., '/my-make-file/')
 // For user/organization pages you can use './' or '/' as needed
-const repoBase = './'
+const repoBase = '/my-portfolio/'
 
 export default defineConfig({
     base: repoBase,

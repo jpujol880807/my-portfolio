@@ -9,7 +9,7 @@ const professionalProjects = [
     title: "Tiendamia",
     description:
       "Tiendamia is a premier cross-border e-commerce platform that acts as a global intermediary, enabling users in Latin America to purchase products from major U.S. retailers like Amazon, eBay, and Walmart through a single localized site.",
-    image: "/images/Tiendamia1.png",
+    image: "images/Tiendamia1.png",
     tech: ["Magento", "Node.js", "PHP", "AWS", "RabbitMQ", "OpenSearch", "Docker"],
     github: "",
     demo: "https://www.tiendamia.com",
@@ -17,7 +17,7 @@ const professionalProjects = [
   {
     title: "Rezglo",
     description: "Rezglo is an all-in-one transportation management and B2B dispatch platform designed for specialized transport sectors, including NEMT (Non-Emergency Medical Transportation), taxis, limos, and shuttle services.",
-    image: "/images/Rezglo1.png",
+    image: "images/Rezglo1.png",
     tech: ["React", "TypeScript", "Laravel", "MongoDB", "DDD", "GraphQL", "Kohana", "Docker"],
     github: "",
     demo: "https://play.google.com/store/apps/details?id=app.Rezglo.passenger",
@@ -26,7 +26,7 @@ const professionalProjects = [
     title: "HomeAlliance",
     description:
       "Home Alliance is a technology-driven home services marketplace that connects homeowners and property managers with a nationwide network of vetted service professionals for repair, installation, and maintenance.",
-    image: "/images/HomeAlliance1.png",
+    image: "images/HomeAlliance1.png",
     tech: ["Laravel", "JQuery", "Socket.io", "Redis", "PostgresQL", "Google Maps", "Twilio", "Docker"],
     github: "",
     demo: "https://homealliance.com",
@@ -35,7 +35,7 @@ const professionalProjects = [
     title: "Donde Hay",
     description:
       "Donde Hay! is a digital application in Cuba used by consumers to locate and check prices of products in real-time within the Cadena de Tiendas Panamericanas, which is part of the CIMEX corporation.",
-    image: "/images/Donde Hay1.png",
+    image: "images/Donde Hay1.png",
     tech: ["Ionic", "Angular", "Open Street Maps", "Leaflet", "PostgresQL", "Google Maps"],
     github: "",
     demo: "https://www.apklis.cu/application/com.datacimex.dondehay",
@@ -47,16 +47,16 @@ const personalProjects = [
     title: "Modern Portfolio Website",
     description:
       "A responsive portfolio website with smooth animations and dark mode support.",
-    image: "/images/Portfolio1.png",
+    image: "images/Portfolio1.png",
     tech: ["React", "Typescript", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com",
-    demo: "#home",
+    github: "https://github.com/jpujol880807/my-portfolio",
+    demo: "https://jpujol880807.github.io/my-portfolio",
   },
   {
     title: "E-commerce App",
     description:
       "A modern e-commerce application built with Nuxt 4, Vue 3, Vuetify, and Drizzle ORM following Domain-Driven Design (DDD) architecture.",
-    image: "/images/Ecommerce App1.png",
+    image: "images/Ecommerce App1.png",
     tech: ["Vue", "Nuxt", "Vercel", "Turso DB", "Vuetify", "DDD"],
     github: "https://github.com/jpujol880807/ecommerce-app",
     demo: "https://ecommerce-app-tau-silk.vercel.app",
