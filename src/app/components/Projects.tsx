@@ -32,6 +32,15 @@ const professionalProjects = [
     demo: "https://homealliance.com",
   },
   {
+    title: "Smart145",
+    description: "Smart145 is a cloud-based Enterprise Resource Planning (ERP) software designed specifically for the aviation industry, primarily focusing on Maintenance, Repair, and Overhaul (MRO) stations and parts suppliers.",
+    image: "images/Smart145 Desktop.png",
+    imagePhone: "images/Smart145 Mobile.png",
+    tech: ["Laravel", "PHP", "MySQL", "Vue", "Cypress", "PHPUnit", "CircleCI" ],
+    github: "",
+    demo: "https://smart145.com",
+  },
+  {
     title: "Donde Hay",
     description:
       "Donde Hay! is a digital application in Cuba used by consumers to locate and check prices of products in real-time within the Cadena de Tiendas Panamericanas, which is part of the CIMEX corporation.",
