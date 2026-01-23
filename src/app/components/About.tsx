@@ -3,7 +3,7 @@ import { Code } from "lucide-react";
 
 export function About() {
   return (
-    <section id="about" className="py-20 px-4 bg-gray-50 dark:bg-gray-900/50 relative z-10">
+    <section id="about" className="py-20 px-4 bg-gray-200/50 dark:bg-gray-900/50 relative z-10">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
